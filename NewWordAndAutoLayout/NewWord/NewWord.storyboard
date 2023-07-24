@@ -67,42 +67,40 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="6rc-pv-BF1">
-                                <rect key="frame" x="16" y="143" width="264" height="32"/>
+                                <rect key="frame" x="16" y="143" width="312" height="34.333333333333343"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jF4-QS-uOF">
-                                        <rect key="frame" x="0.0" y="0.0" width="63" height="32"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jF4-QS-uOF">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="별다줄">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
-                                        </buttonConfiguration>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                         <connections>
                                             <action selector="tagButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="E42-q2-fh3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5CZ-Z2-Qcd">
-                                        <rect key="frame" x="67" y="0.0" width="63" height="32"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5CZ-Z2-Qcd">
+                                        <rect key="frame" x="79" y="0.0" width="75" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="중꺾마">
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="tagButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aoW-uH-3rN"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4D-zL-MTA">
-                                        <rect key="frame" x="134" y="0.0" width="63" height="32"/>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4D-zL-MTA">
+                                        <rect key="frame" x="158" y="0.0" width="75" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="오운완">
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="tagButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="98S-sh-cDb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9L-xp-WlJ">
-                                        <rect key="frame" x="201" y="0.0" width="63" height="32"/>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9L-xp-WlJ">
+                                        <rect key="frame" x="237" y="0.0" width="75" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="스불재">
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -144,10 +142,10 @@
                         <outlet property="descriptionLabel" destination="bVM-lW-tQA" id="MLy-2U-YmE"/>
                         <outlet property="searchField" destination="xcc-fN-Fyi" id="r5r-ir-ESx"/>
                         <outlet property="searchFieldBackground" destination="Y9k-Wt-6Rx" id="yuQ-mk-dlE"/>
-                        <outlet property="tag1Button" destination="jF4-QS-uOF" id="Xm3-rP-IEq"/>
-                        <outlet property="tag2Button" destination="5CZ-Z2-Qcd" id="kHc-7w-5FH"/>
-                        <outlet property="tag3Button" destination="b4D-zL-MTA" id="fFu-B1-bOW"/>
-                        <outlet property="tag4Button" destination="f9L-xp-WlJ" id="651-yf-dnA"/>
+                        <outletCollection property="tagButton" destination="jF4-QS-uOF" collectionClass="NSMutableArray" id="7SF-Io-6u8"/>
+                        <outletCollection property="tagButton" destination="5CZ-Z2-Qcd" collectionClass="NSMutableArray" id="lre-ZK-sB1"/>
+                        <outletCollection property="tagButton" destination="b4D-zL-MTA" collectionClass="NSMutableArray" id="eg4-ha-lKR"/>
+                        <outletCollection property="tagButton" destination="f9L-xp-WlJ" collectionClass="NSMutableArray" id="Zd9-oX-w5c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

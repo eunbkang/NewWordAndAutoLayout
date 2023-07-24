@@ -11,10 +11,7 @@ class NewWordViewController: UIViewController {
     @IBOutlet var searchFieldBackground: UIView!
     @IBOutlet var searchField: UITextField!
     
-    @IBOutlet var tag1Button: UIButton!
-    @IBOutlet var tag2Button: UIButton!
-    @IBOutlet var tag3Button: UIButton!
-    @IBOutlet var tag4Button: UIButton!
+    @IBOutlet var tagButton: [UIButton]!
     
     @IBOutlet var descriptionBackground: UIImageView!
     @IBOutlet var descriptionLabel: UILabel!
@@ -65,10 +62,13 @@ class NewWordViewController: UIViewController {
     }
     
     func configTags() {
-        configOneTag(tag1Button)
-        configOneTag(tag2Button)
-        configOneTag(tag3Button)
-        configOneTag(tag4Button)
+        let wordList = Array(wordDict.keys)
+        print(wordList)
+        
+        for i in 0...wordList.count - 1 {
+            configOneTag(tagButton[i])
+            tagButton[i].setTitle(wordList[i], for: .normal)
+        }
     }
     
     func configOneTag(_ tag: UIButton) {
@@ -87,4 +87,14 @@ class NewWordViewController: UIViewController {
         view.layer.borderWidth = width
         view.layer.borderColor = UIColor.black.cgColor
     }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "빈칸 입력", message: "빈 칸 또는 한 글자만 입력하셨습니다.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "다시 입력", style: .default)
+        alert.addAction(action)
+        
+        present(alert, animated: true)
+    }
+    
+    
 }

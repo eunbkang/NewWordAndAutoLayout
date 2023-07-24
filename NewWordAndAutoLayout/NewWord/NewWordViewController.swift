@@ -33,10 +33,18 @@ class NewWordViewController: UIViewController {
     }
     
     @IBAction func textFieldReturnKeyTapped(_ sender: UITextField) {
-        if wordDict[searchField.text ?? ""] != nil {
-            descriptionLabel.text = wordDict[searchField.text!]
+        guard let text = searchField.text else {
+            showAlert()
+            return
+        }
+        if text.count <= 1 {
+            showAlert()
         } else {
-            descriptionLabel.text = "찾는 결과가 없습니다."
+            if let description = wordDict[text] {
+                descriptionLabel.text = description
+            } else {
+                descriptionLabel.text = "찾는 결과가 없습니다."
+            }
         }
     }
     
@@ -89,7 +97,7 @@ class NewWordViewController: UIViewController {
     }
     
     func showAlert() {
-        let alert = UIAlertController(title: "빈칸 입력", message: "빈 칸 또는 한 글자만 입력하셨습니다.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "빈칸 입력", message: "빈칸 또는 한 글자만 입력하셨습니다.", preferredStyle: .alert)
         let action = UIAlertAction(title: "다시 입력", style: .default)
         alert.addAction(action)
         

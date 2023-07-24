@@ -70,20 +70,22 @@ class NewWordViewController: UIViewController {
     }
     
     func configTags() {
-        let wordList = Array(wordDict.keys)
-        print(wordList)
-        
-        for i in 0...wordList.count - 1 {
-            configOneTag(tagButton[i])
-            tagButton[i].setTitle(wordList[i], for: .normal)
+        for button in tagButton {
+            configOneTag(button)
+            configTagTitle(button)
         }
     }
     
-    func configOneTag(_ tag: UIButton) {
-        setBorderToView(tag, width: 1)
+    func configOneTag(_ button: UIButton) {
+        setBorderToView(button, width: 1)
         
-        tag.layer.cornerRadius = 10
-        tag.tintColor = .black
+        button.layer.cornerRadius = 10
+        button.tintColor = .black
+    }
+    
+    func configTagTitle(_ button: UIButton) {
+        let wordList = Array(wordDict.keys)
+        button.setTitle(wordList[button.tag - 1], for: .normal)
     }
     
     func configDescriptionBackground() {

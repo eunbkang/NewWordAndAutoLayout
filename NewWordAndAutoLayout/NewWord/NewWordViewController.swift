@@ -16,12 +16,25 @@ class NewWordViewController: UIViewController {
     @IBOutlet var descriptionBackground: UIImageView!
     @IBOutlet var descriptionLabel: UILabel!
     
-    let wordDict = [
-        "별다줄": "별걸 다 줄이네",
-        "중꺾마": "중요한 것은 꺾이지 않는 마음",
-        "오운완": "오늘의 운동 완료",
-        "스불재": "스스로 불러온 재앙"
-    ]
+    enum WordOption: String, CaseIterable {
+        case shorten = "별다줄"
+        case mindset = "중꺾마"
+        case workout = "오운완"
+        case disaster = "스불재"
+        
+        var description: String {
+            switch self {
+            case .shorten:
+                return "별걸 다 줄이네"
+            case .mindset:
+                return "중요한 것은 꺾이지 않는 마음"
+            case .workout:
+                return "오늘의 운동 완료"
+            case .disaster:
+                return "스스로 불러온 재앙"
+            }
+        }
+    }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         textFieldReturnKeyTapped(searchField)
@@ -40,7 +53,7 @@ class NewWordViewController: UIViewController {
         if text.count <= 1 {
             showAlert()
         } else {
-            if let description = wordDict[text] {
+            if let description = WordOption(rawValue: text)?.description {
                 descriptionLabel.text = description
             } else {
                 descriptionLabel.text = "찾는 결과가 없습니다."
@@ -84,8 +97,8 @@ class NewWordViewController: UIViewController {
     }
     
     func configTagTitle(_ button: UIButton) {
-        let wordList = Array(wordDict.keys)
-        button.setTitle(wordList[button.tag - 1], for: .normal)
+        let wordList = WordOption.allCases
+        button.setTitle(wordList[button.tag - 1].rawValue, for: .normal)
     }
     
     func configDescriptionBackground() {
